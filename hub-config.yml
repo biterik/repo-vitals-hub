@@ -1,0 +1,7 @@
+# repo-vitals hub configuration — see README.md
+title: "Erik Bitzek — repository fleet"
+
+repos:
+  - biterik/repo-vitals
+  - biterik/openbis-mcp-server
+  - biterik/LAMMPS-compile-n-bench
