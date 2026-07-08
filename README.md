@@ -1,5 +1,12 @@
 # repo-vitals hub
 
+**This repository is the public template** — click **Use this template**
+above to get your own, independent copy. It also runs as a live working
+demo (real data, not placeholders), so you can see exactly what your own
+copy will produce before you make one: **<https://biterik.github.io/repo-vitals-hub/>**.
+It is not anyone's personal fleet tracker — Erik's own repos are tracked in
+a separate, non-template hub.
+
 An aggregate view over many [repo-vitals](https://github.com/biterik/repo-vitals)-instrumented
 repositories: one dashboard, one combined report, and a watchdog that flags
 repos whose data has gone stale.
@@ -10,15 +17,24 @@ tokens, no coordination with the repo owners.
 
 ## Set up your own hub (5 minutes)
 
-1. Copy the three files of this template into a new repository
-   (e.g. `your-name/repo-vitals-hub`):
-   `hub-config.yml`, `.github/workflows/hub.yml`, this `README.md`.
-2. Edit `hub-config.yml`: set a title and list the repositories to track.
-   Any repo with a `vitals` branch works — see the
-   [2-minute install](https://github.com/biterik/repo-vitals#install-instrument-a-repository-2-minutes)
-   for repos that don't have one yet.
-3. Enable Pages: *Settings → Pages → Source: "GitHub Actions"*.
-4. Run it once: *Actions → hub → Run workflow*.
+1. **Use this template** (top of this page) → **Create a new repository**
+   with any name you like (e.g. `your-name/repo-vitals-hub`).
+2. Enable Pages, once: in your new repo, *Settings → Pages → Source:
+   "GitHub Actions"*.
+3. Edit `hub-config.yml` in your new repo: set a title and list the
+   repositories to track. Any repo with a `vitals` branch works — see the
+   [2-minute install](https://github.com/biterik/repo-vitals#part-1-track-one-repo-2-minutes)
+   for repos that don't have one yet. You can do this entirely in the
+   browser: open the file, click the pencil (✏️) icon, edit, **Commit
+   changes**.
+
+That's it — committing a change to `hub-config.yml` **automatically**
+rebuilds the site (the workflow triggers on any push that touches that
+file). No separate "run it" step needed. It also rebuilds on its own every
+day at 04:43 UTC, so it never goes stale even untouched. If you want the
+site updated immediately without changing the config, you can still trigger
+a rebuild by hand: *Actions → hub → Run workflow* — but that's an optional
+shortcut, never a required step.
 
 Your fleet is then live at:
 
@@ -26,9 +42,18 @@ Your fleet is then live at:
 - `https://<your-name>.github.io/<hub-repo>/REPORT.md` — combined report
   (the document to attach to a funder or project report)
 - `https://<your-name>.github.io/<hub-repo>/hub-data.json` — machine-readable
-
-The site rebuilds daily (04:43 UTC), on every change to `hub-config.yml`,
-and on demand via *Run workflow*.
+- `https://<your-name>.github.io/<hub-repo>/repos/<owner>-<repo>/` — a live
+  **interactive dashboard for each tracked repo**, mirrored by the hub
+  itself. Clicking a repo from the fleet table or the combined report opens
+  charts, not a raw markdown file — this works even for repos that never
+  set up their own GitHub Pages. Set `site_url` in `hub-config.yml` to your
+  hub's own address above so these links are fully-qualified inside
+  `REPORT.md` too (optional; relative links already work when the site is
+  browsed as a whole).
+- `https://<your-name>.github.io/<hub-repo>/reports/` — every day's combined
+  report, kept under a name that always carries the fleet title and the
+  date (e.g. `my-repo-fleet-2026-07-06.md`) — safe to download and file
+  away without colliding with anyone else's `REPORT.md`.
 
 ## The watchdog
 

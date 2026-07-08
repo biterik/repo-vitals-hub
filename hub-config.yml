@@ -1,5 +1,8 @@
 # repo-vitals hub configuration — see README.md
-title: "Erik Bitzek — repository fleet"
+# This repo is the PUBLIC TEMPLATE (click "Use this template" to get your
+# own copy). It also doubles as a live, working demo — that's why it's
+# "not empty" — but it is not anyone's personal fleet tracker.
+title: "Example — repo-vitals hub demo"
 
 repos:
   - biterik/repo-vitals
